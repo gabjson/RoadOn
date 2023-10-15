@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+			style="background: rgb(47, 54, 58)"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="index">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="fa fa-bars"></i>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+						<li class="nav-item">
+							<a class="nav-link active" href="agendados">Agendados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="destinos">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="dashboard">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="registrar-turista"	
+								style="margin-right: 28px"							
+							>
+								incluir turistas
+							</a>
+						</li>
+						
+					</ul>
+					<button
+						class="btn btn-primary text-uppercase"
+						type="button"
+						style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+						onclick="window.location.href = '/logout'"
+					>
+						Sair
+					</button>
+				</div>
+			</div>
+		</nav>
+		<% model.forEach(function(model) { %>
+		<div class="container">
+			<section
+				class="register-photo"
+				style="
+					background: rgb(47, 54, 58);
+					margin-bottom: 5px;
+					margin-top: 30px;
+					padding-bottom: 50px;
+				"
+			>
+				<h1
+					class="text-capitalize"
+					style="
+						text-align: center;
+						padding: 40px;
+						color: rgb(254, 209, 54);
+						padding-top: 55px;
+						margin-bottom: -35px;
+						font-family: 'Kaushan Script', serif;
+					"
+				>
+					Consulta ao agendamento
+				</h1>
+				<div
+					class="form-container"
+					style="
+						border-radius: 30px;
+						box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+						background: #343a40;
+						padding: 40px;
+						margin-top: 60px;
+						margin-bottom: 10px;
+					"
+				>
+					<div
+						class="image-holder"
+						style="
+							border-radius: 30px;
+							background: url('assets/img/pexels-pixabay-67566.jpg') center /
+								cover;
+							width: 606px;
+						"
+					></div>
+					<form
+						method="post"
+						style="
+							border-radius: 30px;
+							background: rgb(52, 58, 64);
+							width: 515px;
+							padding: 105px 60px;
+							padding-left: 65px;
+							padding-right: 10px;
+							padding-top: 40px;
+						"
+					>
+						<div class="mb-3">
+							<h5
+								style="
+									color: rgb(254, 209, 54);
+									text-align: center;
+									margin-bottom: 18px;
+								"
+							>
+								Dados da excursão
+							</h5>
+						</div>
+						<div
+							style="
+								border-radius: 15px;
+								box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+								background: var(--bs-gray-700);
+								padding: 34px;
+								margin-top: 0px;
+								margin-bottom: 10px;
+								color: var(--bs-gray-800);
+							"
+							class="form-container"
+						>
+							<div style="padding: 10px">
+								<label
+									class="form-label"
+									style="
+										color: rgb(254, 209, 54);
+										text-align: center;
+										margin-bottom: 18px;
+										font-weight: bold;
+										font-family: Montserrat, sans-serif;
+										font-size: 21px;
+									"
+								>
+									<%= model.nome_destino %>									
+								</label>
+								<br/>
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										text-align: center;
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+										margin-bottom: 18px;
+									"
+								>
+									Valor por pessoa: R$<%= model.valor_excursao %>
+								</label>
+							</div>
+							<div style="margin-top: -15px; padding: 10px">
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+									Ida: <br/>
+									<%= moment(model.data_saida_excursao).format('LLLL') %>
+								</label>								
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+										margin-top: 15px;
+									"
+								>
+									Retorno:<br/> <%= moment(model.data_volta_excursao).format('LLLL')%>
+
+								</label>
+
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+										margin-top: 15px;
+									"
+								>
+									Roteiro:<br/> 
+										<%= model.roteiro_excursao %>
+									</p>
+
+								</label>
+								
+								
+								
+							</div>
+						</div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary d-block w-100"
+								type="button"
+								onclick="window.location.href = 'agendados'"
+								style="
+									background: var(--bs-gray-700);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Retornar
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+		<% }) %>
+		<%- include('footer') %>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/agency.js"></script>	</body>
+</html>

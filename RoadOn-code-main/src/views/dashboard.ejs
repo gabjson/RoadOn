@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+			style="background: rgb(47, 54, 58)"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="index">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="fa fa-bars"></i>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+						<li class="nav-item">
+							<a class="nav-link" href="agendados">Agendados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="destinos">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#page-top">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="registrar-turista"
+								style="margin-right: 28px"								
+							>
+								incluir turistas
+							</a>
+						</li>
+						
+					</ul>
+					<button
+						class="btn btn-primary text-uppercase"
+						type="button"
+						style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+						onclick="window.location.href = '/logout'"
+					>
+						Sair
+					</button>
+				</div>
+			</div>
+		</nav>
+		<header
+			class="masthead"
+			style="margin-top: 25px; background: rgb(47, 54, 58)"
+		>
+			<div
+				class="container"
+				style="margin-top: 10px; padding-top: 26px; padding-bottom: 80px"
+			>
+				<div id="wrapper">
+					<div class="d-flex flex-column" id="content-wrapper">
+						<div id="content">
+							<div class="container-fluid" style="margin-top: 100px">
+								<div
+									class="
+										d-sm-flex
+										justify-content-between
+										align-items-center
+										mb-4
+									"
+								></div>
+								<div class="row">
+									<div class="col-md-6 col-xl-3 mb-4">
+										<div
+											class="card shadow border-start-primary py-2"
+											style="background: rgb(52, 58, 64); border-radius: 30px"
+										>
+											<div class="card-body">
+												<div class="row align-items-center no-gutters">
+													<div class="col me-2">
+														<div
+															class="
+																text-uppercase text-primary
+																fw-bold
+																text-xs
+																mb-1
+															"
+														>
+														<% modelPendentes.forEach(function(modelPendentes) { %>
+															<span>
+																Excursões
+																<br />
+																Pendentes
+															</span>
+														</div>
+														<div class="text-dark fw-bold h5 mb-0">
+															<span style="color: rgb(255, 255, 255)">
+																<%= modelPendentes.agendamentos %>
+															</span>
+														</div>
+														<% }) %>
+													</div>
+													<div class="col-auto">
+														<i class="fas fa-calendar fa-2x text-gray-300"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div
+											class="card shadow border-start-success py-2"
+											style="background: rgb(52, 58, 64); border-radius: 30px"
+										>
+											<div class="card-body">
+												<div class="row align-items-center no-gutters">
+													<div class="col me-2">
+														<div
+															class="
+																text-uppercase text-success
+																fw-bold
+																text-xs
+																mb-1
+															"
+														>
+														<% modelLucroAnual.forEach(function(modelLucroAnual) { %>
+															<span>
+																Ganhos
+																<br />
+																(anual)
+															</span>
+														</div>
+														<div class="text-dark fw-bold h5 mb-0">
+															<span style="color: rgb(255, 255, 255)">
+																R$ <%= modelLucroAnual.qtd %>
+															</span>
+														</div>
+														<% }) %>
+													</div>
+													<div class="col-auto">
+														<i
+															class="fas fa-dollar-sign fa-2x text-gray-300"
+														></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xl-3 mb-4">
+										<div
+											class="card shadow border-start-success py-2"
+											style="background: rgb(52, 58, 64); border-radius: 30px"
+										>
+											<div class="card-body">
+												<div class="row align-items-center no-gutters">
+													<div class="col me-2">
+														<div
+															class="
+																text-uppercase text-success
+																fw-bold
+																text-xs
+																mb-1
+															"
+														>
+														<% modelLucroViagem.forEach(function(modelLucroViagem) { %>
+															<span style="color: rgb(39, 180, 200)">
+																Ganhos
+																<br />
+																(Por viagem)
+															</span>
+														</div>
+														<div class="text-dark fw-bold h5 mb-0">
+															<span style="color: rgb(255, 255, 255)">
+																R$ <%= modelLucroViagem.qtd%>
+															</span>
+														</div>
+														<% }) %>
+													</div>
+													<div class="col-auto">
+														<i
+															class="fas fa-dollar-sign fa-2x text-gray-300"
+														></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xl-3 mb-4">
+										<div
+											class="card shadow border-start-warning py-2"
+											style="background: rgb(52, 58, 64); border-radius: 30px"
+										>
+											<div class="card-body">
+												<div class="row align-items-center no-gutters">
+													<div class="col me-2">
+														<div
+															class="
+																text-uppercase text-warning
+																fw-bold
+																text-xs
+																mb-1
+															"
+														>
+														<% modelRealizados.forEach(function(modelRealizados) { %>
+															<span>
+																Excursões
+																<br />
+																Realizadas
+															</span>
+														</div>
+														<div class="text-dark fw-bold h5 mb-0">
+															<span style="color: rgb(255, 255, 255)"><%= modelRealizados.agendamentos %></span>
+														</div>
+														<% }) %>
+													</div>
+													<div class="col-auto">
+														<i class="fas fa-comments fa-2x text-gray-300"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-7 col-xl-8">
+										<div
+											class="card shadow mb-4"
+											style="background: rgb(52, 58, 64); border-radius: 30px"
+										>
+											<div
+												class="
+													card-header
+													d-flex
+													justify-content-between
+													align-items-center
+												"
+												style="
+													background: rgb(52, 58, 64);
+													border-top-left-radius: 30px;
+													border-top-right-radius: 30px;
+													height: 50px;
+												"
+											>
+												<h6 class="text-primary fw-bold m-0">Lucro (Mensal)</h6>
+											</div>
+											<div
+												class="card-body"
+												style="
+													background: #343a40;
+													border-bottom-right-radius: 30px;
+													border-bottom-left-radius: 30px;
+													height: 225px;
+												"
+											>
+												<div class="chart-area">
+													<canvas id="myChart"></canvas>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-xl-4">
+										<div
+											class="card shadow mb-4"
+											style="background: rgb(52, 58, 64); border-radius: 30px"
+										>
+											<div
+												class="
+													card-header
+													d-flex
+													justify-content-between
+													align-items-center
+												"
+												style="
+													background: rgb(52, 58, 64);
+													border-top-left-radius: 30px;
+													border-top-right-radius: 30px;
+												"
+											>
+												<h6
+													class="text-primary fw-bold m-0"
+													style="padding: 6px"
+												>
+													Destinos preferidos
+												</h6>
+											</div>
+											<div
+												class="card-body"
+												style="
+													background: #343a40;
+													border-bottom-right-radius: 30px;
+													border-bottom-left-radius: 30px;
+													margin-top: 15px;
+													height: 212px;
+												"
+											>
+												<div class="chart-area">
+													<canvas id="myChart2"></canvas>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="row">
+											<div class="col">
+												<section
+													class="highlight-phone"
+													style="
+														background: rgb(52, 58, 64);
+														border-radius: 30px;
+														box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.18);
+														margin-bottom: 35px;
+													"
+												>
+												<% modelEmpresa.forEach(function(modelEmpresa) { %>
+													<div class="container">
+														<div class="row">
+															<div class="col-md-8">
+																<div class="intro">
+																	<h2 style="color: rgb(254, 209, 54)">
+																		Edite sua empresa
+																	</h2>
+																	<p>
+																		Edite seus dados, como nome de empresa, email ou senha!
+																	</p>
+																	<a
+																		class="btn btn-primary"
+																		role="button"
+																		href="alterar-empresa?empresa=<%= modelEmpresa.id_empresa %>"
+																		style="
+																			background: rgb(254, 209, 54);
+																			color: rgb(0, 0, 0);
+																		"
+																	>
+																		&nbsp;Edite a empresa
+																	</a>
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="d-none d-md-block phone-mockup">
+																	<img
+																		class="device"
+																		src="assets/img/phone.svg"
+																		style="
+																			background: url('assets/img/scott-graham-OQMZwNd3ThU-unsplash.jpg')
+																				center / cover;
+																			border-radius: 37px;
+																			width: 260px;
+																		"
+																	/>
+																	<div class="screen"></div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<% }) %>
+												</section>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a class="border rounded d-inline scroll-to-top" href="#page-top">
+						<i class="fas fa-angle-up"></i>
+					</a>
+				</div>
+			</div>
+		</header>
+		<%- include('footer') %>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+		<script src="assets/js/agency.js"></script>
+		<script src="assets/js/Dashboard.js"></script>
+
+		<script>
+			let dadosMeses = []
+			console.log('<%= modelJaneiro.length %>')
+			if ('<%= modelJaneiro.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelJaneiro.forEach(function(modelJaneiro) { %>'
+					dadosMeses.push(parseFloat('<%= modelJaneiro.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelFevereiro.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelFevereiro.forEach(function(modelFevereiro) { %>'
+					dadosMeses.push(parseFloat('<%= modelFevereiro.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelMarco.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelMarco.forEach(function(modelMarco) { %>'
+					dadosMeses.push(parseFloat('<%= modelMarco.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelAbril.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelAbril.forEach(function(modelAbril) { %>'
+					dadosMeses.push(parseFloat('<%= modelAbril.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelMaio.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelMaio.forEach(function(modelMaio) { %>'
+					dadosMeses.push(parseFloat('<%= modelMaio.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelJunho.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelJunho.forEach(function(modelJunho) { %>'
+					dadosMeses.push(parseFloat('<%= modelJunho.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelJulho.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelJulho.forEach(function(modelJulho) { %>'
+					dadosMeses.push(parseFloat('<%= modelJulho.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelAgosto.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelAgosto.forEach(function(modelAgosto) { %>'
+					dadosMeses.push(parseFloat('<%= modelAgosto.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelSetembro.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelSetembro.forEach(function(modelSetembro) { %>'
+					dadosMeses.push(parseFloat('<%= modelSetembro.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelOutubro.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelOutubro.forEach(function(modelOutubro) { %>'
+					dadosMeses.push(parseFloat('<%= modelOutubro.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelNovembro.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelNovembro.forEach(function(modelNovembro) { %>'
+					dadosMeses.push(parseFloat('<%= modelNovembro.sum %>'))
+				'<% }) %>'	
+			}
+
+			if ('<%= modelDezembro.length %>' == 0){
+				dadosMeses.push(0)
+			} else {
+				'<% modelDezembro.forEach(function(modelDezembro) { %>'
+					dadosMeses.push(parseFloat('<%= modelDezembro.sum %>'))
+				'<% }) %>'	
+			}
+
+			new Chart('myChart', {
+				type: 'line',
+				data: {
+					labels: [
+						'Jan',
+						'Fev',
+						'Mar',
+						'Abr',
+						'Mai',
+						'Jun',
+						'Jul',
+						'Ago',
+						'Set',
+						'Out',
+						'Nov',
+						'Dez',
+					],
+					datasets: [
+						{
+							label: 'Ganhos',
+							fill: true,
+							data: dadosMeses,
+							backgroundColor: 'rgba(78, 115, 223, 0.05)',
+							borderColor: 'rgba(78, 115, 223, 1)',
+						},
+					],
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false,
+						labels: {
+							fontStyle: 'normal',
+						},
+					},
+					title: {
+						fontStyle: 'normal',
+					},
+					scales: {
+						xAxes: [
+							{
+								gridLines: {
+									color: 'rgb(234, 236, 244)',
+									zeroLineColor: 'rgb(234, 236, 244)',
+									drawBorder: false,
+									drawTicks: false,
+									borderDash: ['2'],
+									zeroLineBorderDash: ['2'],
+									drawOnChartArea: false,
+								},
+								ticks: {
+									fontColor: '#858796',
+									fontStyle: 'normal',
+									padding: 20,
+								},
+							},
+						],
+						yAxes: [
+							{
+								gridLines: {
+									color: 'rgb(234, 236, 244)',
+									zeroLineColor: 'rgb(234, 236, 244)',
+									drawBorder: false,
+									drawTicks: false,
+									borderDash: ['2'],
+									zeroLineBorderDash: ['2'],
+								},
+								ticks: {
+									fontColor: '#858796',
+									fontStyle: 'normal',
+									padding: 20,
+								},
+							},
+						],
+					},
+				},
+			})
+			
+			let destinos = []
+			let valoresDestinos = []
+
+			'<% modelPizza.forEach(function(modelPizza) { %>'
+				destinos.push('<%= modelPizza.nome_destino %>')
+				valoresDestinos.push('<%= modelPizza.qtd %>')
+			'<% }) %>'
+
+			new Chart('myChart2', {
+				type: 'doughnut',
+				data: {
+					labels: destinos,
+					datasets: [
+						{
+							label: '',
+							backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+							borderColor: ['#ffffff', '#ffffff', '#ffffff'],
+							data: valoresDestinos,
+						},
+					],
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false,
+						labels: {
+							fontStyle: 'normal',
+						},
+					},
+					title: {
+						fontStyle: 'normal',
+					},
+				},
+			})
+
+			'<% if(success) { %>'
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Empresa alterada com sucesso!',
+                    confirmButtonColor: 'rgb(254, 209, 54)',
+                })
+			'<%}%>'
+
+		</script>
+	</body>
+</html>

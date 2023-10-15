@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+		>
+		
+		
+			<div class="container">
+				<a class="navbar-brand" href="index">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				></button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item">
+							<a class="nav-link" href="agendados">Agendados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="destinos">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="dashboard">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="registrar-turista"
+								style="margin-right: 28px"								
+							>
+								incluir turistas
+							</a>
+						</li>					
+					</ul>
+					<button
+					class="btn btn-primary text-uppercase"
+					type="button"
+					style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+					onclick="window.location.href = '/logout'"
+				>
+					Sair
+				</button>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<section
+				class="register-photo"
+				style="
+					background: rgb(47, 54, 58);
+					margin-bottom: 5px;
+					margin-top: 30px;
+					padding-bottom: 50px;
+				"
+			>
+				<h1
+					class="text-capitalize"
+					style="
+						text-align: center;
+						padding: 40px;
+						color: rgb(254, 209, 54);
+						padding-top: 55px;
+						margin-bottom: -35px;
+						font-family: 'Kaushan Script', serif;
+					"
+				>
+					Altere sua empresa
+				</h1>
+				<div
+					class="form-container"
+					style="
+						border-radius: 30px;
+						box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+						background: #343a40;
+						padding: 40px;
+						margin-top: 60px;
+						margin-bottom: 10px;
+					"
+				>
+					<div
+						class="image-holder"
+						style="
+							border-radius: 30px;
+							background: url('assets/img/nrd-c3tNiAb098I-unsplash.jpg') center /
+								r;
+						"
+					></div>
+					<form
+						method="post"
+						style="
+							border-radius: 30px;
+							background: rgb(52, 58, 64);
+							width: 515px;
+							padding: 105px 60px;
+							padding-left: 65px;
+							padding-right: 10px;
+							padding-top: 40px;
+						"
+					>
+						<div class="mb-3">
+							<h5
+								style="
+									color: rgb(254, 209, 54);
+									text-align: center;
+									margin-bottom: 18px;
+								"
+							>
+								Dados
+							</h5>
+						</div>
+						<% model.forEach(function(model) { %>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Nome da empresa
+							</label>
+							<input
+								class="form-control"
+								type="text"
+								value="<%= model.nome_empresa %>"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o nome da empresa"
+								name="nome_empresa"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								CNPJ
+							</label>
+							<input
+								class="form-control"
+								type="text"
+								value="<%= model.cnpj_empresa %>"
+								onblur="if(!validarCNPJ(this.value)){Swal.fire({
+									icon: 'warning',
+									title: 'Oops...',
+									text: 'CNPJ Inválido!',
+									confirmButtonColor: 'rgb(254, 209, 54)'								
+								  }); this.value='';}"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o CNPJ da empresa"
+								name="cnpj_empresa"
+								id="cnpj_empresa"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Telefone
+							</label>
+							<input
+								class="form-control"
+								type="number"
+								onblur="if(!validPhone(this.value)){Swal.fire({
+									icon: 'warning',
+									title: 'Oops...',
+									text: 'Telefone Inválido!',
+									confirmButtonColor: 'rgb(254, 209, 54)'								
+								  }); this.value='';}"
+								value="<%= model.telefone_empresa %>"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o telefone da empresa ex: 1199999999"
+								name="telefone_empresa"
+								id="telefone_empresa"
+							/>
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Email
+							</label>
+							<input
+								class="form-control"
+								type="email"
+								name ="email_empresa"
+								id ="email_empresa"
+								value="<%= model.email_empresa %>"
+								placeholder="Digite o email de cadastro"
+								style="border-radius: 15px"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Senha
+							</label>
+							<input
+								class="form-control"
+								id="senha_empresa"
+								type="password"
+								name="senha_empresa"
+								onblur="if(!validaTamanhoSenha(this.value)){Swal.fire({
+									icon: 'warning',
+									title: 'Oops...',
+									text: 'Senha deve conter no mínimo 8 dígitos.',
+									confirmButtonColor: 'rgb(254, 209, 54)'								
+								  }); this.value='';}"
+								placeholder="Digite uma senha"
+								style="border-radius: 15px"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Repita a senha
+							</label>
+							<input
+								class="form-control"
+								type="password"
+								id="senha-repeat"
+								name="senha-repeat"
+								onblur="if(!validaSenha(this.value)){Swal.fire({
+									icon: 'warning',
+									title: 'Oops...',
+									text: 'As senhas não coincidem!',
+									confirmButtonColor: 'rgb(254, 209, 54)',
+								}); this.value='';}"
+								placeholder="Repita a senha"
+								style="border-radius: 15px"
+							/>
+						</div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary d-block w-100"
+								type="submit"
+								onClick="return validarCamposEmBranco();"
+								style="
+									background: rgb(254, 209, 54);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+								name='btn-alterar'
+							>
+								Alterar!
+							</button>
+						</div>
+						<div class="mb-3">
+							<button
+								class="btn btn-danger d-block w-100"
+								type="button"
+								style="
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding: 14px 12px 14px;
+									padding-bottom: 14px;
+								"
+								data-bs-toggle="modal"
+								data-bs-target="#modal-exclusao"
+							>
+								Excluir conta
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="modal fade" role="dialog" tabindex="-1" id="modal-exclusao">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div
+								class="modal-header"
+								style="background: #2f363a; border-radius: -11px; padding: 25px"
+							>
+								<h4 class="modal-title" style="color: rgb(254, 209, 54)">
+									Confirmação
+								</h4>
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+								></button>
+							</div>
+							<div class="modal-body" style="background: #2f363a">
+								<h4 style="color: rgb(255, 0, 0)">
+									Tem certeza que deseja excluir sua empresa?&nbsp;
+									<br />
+									Isso ocasionará na perca de todos os dados vinculados
+								</h4>
+							</div>
+							<div class="modal-footer" style="background: #2f363a">
+								<button
+									class="btn btn-danger"
+									type="button"
+									style="color: rgb(0, 0, 0)"
+									onclick="window.location.href = '/remover-empresa?empresa=<%=model.id_empresa%>'"
+								>
+									Excluir
+								</button>
+								<button
+									class="btn btn-secondary"
+									type="button"
+									style="color: rgb(0, 0, 0)"
+									data-bs-dismiss="modal"
+								>
+									Sair
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% }) %>
+			</section>
+		</div>
+		<%- include('footer') %>
+		
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/agency.js"></script>
+		<script>
+			function validaSenha(input) {
+				senha = document.getElementById('senha_empresa').value
+				repeteSenha = input
+
+				if (senha == repeteSenha) {
+					return true
+				} else {
+					return false
+				}
+			}
+
+			function validaTamanhoSenha(senha){
+				if(senha.length < 8){
+					Swal.fire({
+						icon: 'warning',
+						title: 'Oops...',
+						text: 'Senha deve conter no mínimo 8 dígitos.',
+						confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+				} else {
+					return true
+				}
+			}
+
+			function validPhone(phone) {
+				var validador = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g;
+				if(validador.test(phone)){
+					return false
+				}
+   				 if(phone.length > 11 || phone.length <10){
+						return false
+					}
+				return true;
+			}
+
+			function validarCNPJ(cnpj) {
+				cnpj = cnpj.replace(/[^\d]+/g, '')
+
+				if (cnpj == '') return false
+
+				if (cnpj.length != 14) return false
+
+				// Elimina CNPJs invalidos conhecidos
+				if (
+					cnpj == '00000000000000' ||
+					cnpj == '11111111111111' ||
+					cnpj == '22222222222222' ||
+					cnpj == '33333333333333' ||
+					cnpj == '44444444444444' ||
+					cnpj == '55555555555555' ||
+					cnpj == '66666666666666' ||
+					cnpj == '77777777777777' ||
+					cnpj == '88888888888888' ||
+					cnpj == '99999999999999'
+				)
+					return false
+
+				// Valida DVs
+				tamanho = cnpj.length - 2
+				numeros = cnpj.substring(0, tamanho)
+				digitos = cnpj.substring(tamanho)
+				soma = 0
+				pos = tamanho - 7
+				for (i = tamanho; i >= 1; i--) {
+					soma += numeros.charAt(tamanho - i) * pos--
+					if (pos < 2) pos = 9
+				}
+				resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11)
+				if (resultado != digitos.charAt(0)) return false
+
+				tamanho = tamanho + 1
+				numeros = cnpj.substring(0, tamanho)
+				soma = 0
+				pos = tamanho - 7
+				for (i = tamanho; i >= 1; i--) {
+					soma += numeros.charAt(tamanho - i) * pos--
+					if (pos < 2) pos = 9
+				}
+				resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11)
+				if (resultado != digitos.charAt(1)) return false
+
+				return true
+			}
+
+			function validarCamposEmBranco(){
+				senha = document.getElementById('senha_empresa').value
+				repeteSenha = document.getElementById('senha-repeat').value
+				cnpj = document.getElementById('cnpj_empresa').value
+				telefone = document.getElementById('telefone_empresa').value
+				email = document.getElementById('email_empresa').value
+
+				if(senha === "" || repeteSenha === "" || cnpj === "" || telefone === "" || email === ""){
+					Swal.fire({
+						icon: 'error',
+						title: 'Não foi possível realizar o cadastro',
+						text: 'Necessário preencher todos os campos em branco!',
+						confirmButtonColor: 'rgb(254, 209, 54)',
+				})
+				return false
+				} else {
+					return true
+				}
+			}
+
+			'<% if(exists) { %>'
+			   Swal.fire({
+				icon: 'error',
+				title: 'Não foi possível realizar o cadastro',
+				text: 'O CNPJ e/ou email informado(s) já existe na base de dados!',
+				confirmButtonColor: 'rgb(254, 209, 54)',
+				})
+			'<%}%>'
+
+			'<% if(error) { %>'
+			   Swal.fire({
+				icon: 'error',
+				title: 'Erro no sistema',
+				text: 'Tente novamente! Caso o erro persista, consulte o administrador para mais informações!',
+				confirmButtonColor: 'rgb(254, 209, 54)',
+				})
+			'<%}%>'
+		</script>
+	</body>
+</html>

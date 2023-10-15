@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<header
+			class="masthead"
+			style="background: url('assets/img/header-bg-2.jpg')"
+		>
+			<div class="container">
+				<div class="intro-text">
+					<div class="text-uppercase intro-lead-in">
+						<span style="font-size: 40px">Bem vindo ao RoadOn!</span>
+					</div>
+					<div class="intro-heading text-uppercase">
+						<span style="text-shadow: 3px 5px 20px rgb(0, 0, 0)">
+							O seu gerenciador de viagens
+						</span>
+					</div>
+					<a
+						class="btn btn-primary btn-xl text-uppercase"
+						role="button"
+						href="#servicos"
+						style="color: rgb(0, 0, 0)"
+					>
+						Explorar
+					</a>
+				</div>
+			</div>
+			<nav
+				class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+				id="mainNav"
+				style="background: rgb(47, 54, 58)"
+			>
+				<div class="container">
+					<a class="navbar-brand" href="#page-top">Road.On</a>
+					<button
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarResponsive"
+						class="navbar-toggler navbar-toggler-right"
+						type="button"
+						aria-controls="navbarResponsive"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<i class="fa fa-bars"></i>
+					</button>
+					<div
+						class="collapse navbar-collapse"
+						id="navbarResponsive-1"
+						style="padding-right: 12px"
+					>
+						<ul class="navbar-nav ms-auto text-uppercase">
+							<li class="nav-item"></li>
+							<li class="nav-item"></li>
+							<li class="nav-item">
+								<a class="nav-link" href="agendados">Agendados</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="destinos">Destinos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="dashboard">Dashboard</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="registrar-turista" style="margin-right: 28px">
+									incluir turistas
+								</a>
+							</li>							
+						</ul>
+						<button
+							class="btn btn-primary text-uppercase"
+							type="button"
+							style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+							onclick="window.location.href = '/logout'"
+						>
+							Sair
+						</button>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<section id="servicos">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="text-uppercase" style="color: rgb(254, 209, 54)">
+							Serviços
+						</h2>
+						<h3 class="text-muted section-subheading">
+							Aqui está o que podemos oferecer: 
+						</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="list-group timeline">
+							<li class="list-group-item">
+								<div
+									class="timeline-image"
+									style="
+										color: rgb(0, 0, 0);
+										background: url('assets/img/header-bg-3.jpg') center / cover;
+									"
+								></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="subheading" style="color: rgb(254, 209, 54)">
+											Controle suas viagens
+										</h4>
+									</div>
+									<div class="timeline-body">
+										<p class="text-muted">
+											Com o RoadOn, gerenciar suas viagens nunca foi tão fácil. Agende, edite ou cancele a qualquer momento.
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item timeline-inverted">
+								<div
+									class="timeline-image"
+									style="
+										background: url('assets/img/rupixen-com-ILpCscZCeR8-unsplash.jpg')
+											center / cover;
+									"
+								></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="subheading" style="color: rgb(254, 209, 54)">
+											Gerencie seus lucros
+										</h4>
+									</div>
+									<div class="timeline-body">
+										<p class="text-muted">
+											O RoadOn oferece um dashboard totalmente dinâmico, que traz todos os seus ganhos durante as viagens que você realizou. 
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div
+									class="timeline-image"
+									style="
+										background: url('assets/img/header-bg.jpg') center / cover;
+									"
+								></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="subheading" style="color: rgb(254, 209, 54)">
+											Ofereça os melhores destinos
+										</h4>
+									</div>
+									<div class="timeline-body">
+										<p class="text-muted">
+											No RoadOn, você pode cadastrar QUALQUER tipo de viagem. Desde uma pequena excursão local, a uma viagem mais rebuscada. 
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item timeline-inverted">
+								<div
+									class="timeline-image"
+									style="
+										background: url('assets/img/philipp-kammerer-6Mxb_mZ_Q8E-unsplash.jpg')
+											center / cover;
+									"
+								></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="subheading" style="color: rgb(254, 209, 54)">
+											Vivencie a experiência
+										</h4>
+									</div>
+									<div class="timeline-body">
+										<p class="text-muted">
+											Venha fazer parte do RoadOn e aproveitar os melhores recursos que temos a oferecer.
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item timeline-inverted">
+								<div class="timeline-image">
+									<h4
+										style="
+											color: rgb(0, 0, 0);
+											font-family: 'Kaushan Script', serif;
+											font-weight: bold;
+										"
+									>
+										Seja
+										<br />
+										&nbsp;Parte da
+										<br />
+										&nbsp;Inovação!
+									</h4>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="contato" style="background: url('assets/img/header-bg-7.jpg')">
+			<div class="container" style="padding: 45px">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2
+							class="text-uppercase section-heading"
+							style="
+								text-shadow: -4px 0px 20px rgb(0, 0, 0);
+								color: rgb(254, 209, 54);
+							"
+						>
+							Entre em contato conosco
+						</h2>
+						<button
+							class="btn btn-primary btn-xl text-uppercase"
+							id="sendMessageButton"
+							type="button"
+							onclick="location.href='mailto:roadon@gmail.com;'"
+							style="color: rgb(0, 0, 0); align-content: center"
+						>
+							enviar mensagem
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<%- include('footer') %>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/agency.js"></script>	</body>
+</html>

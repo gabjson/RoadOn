@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+			style="background: rgb(47, 54, 58)"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="index">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="fa fa-bars"></i>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+						<li class="nav-item">
+							<a class="nav-link active" href="agendados">Agendados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="destinos">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="dashboard">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="registrar-turista"
+								style="margin-right: 28px"								
+							>
+								incluir turistas
+							</a>
+						</li>
+						
+					</ul>
+					<button
+						class="btn btn-primary text-uppercase"
+						type="button"
+						style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+						onclick="window.location.href = '/logout'"
+					>
+						Sair
+					</button>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<section
+				class="register-photo"
+				style="
+					background: rgb(47, 54, 58);
+					margin-bottom: 5px;
+					margin-top: 30px;
+					padding-bottom: 50px;
+				"
+			>
+				<h1
+					class="text-capitalize"
+					style="
+						text-align: center;
+						padding: 40px;
+						color: rgb(254, 209, 54);
+						padding-top: 55px;
+						margin-bottom: -35px;
+						font-family: 'Kaushan Script', serif;
+					"
+				>
+					&nbsp;Altere os dados do agendamento
+				</h1>
+				<div
+					class="form-container"
+					style="
+						border-radius: 30px;
+						box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+						background: #343a40;
+						padding: 40px;
+						margin-top: 60px;
+						margin-bottom: 10px;
+					"
+				>
+					<div
+						class="image-holder"
+						style="
+							border-radius: 30px;
+							background: url('assets/img/pexels-pixabay-67566.jpg') center /
+								cover;
+							width: 606px;
+						"
+					></div>
+					<form
+						method="post"
+						style="
+							border-radius: 30px;
+							background: rgb(52, 58, 64);
+							width: 515px;
+							padding: 105px 60px;
+							padding-left: 65px;
+							padding-right: 10px;
+							padding-top: 40px;
+						"
+					>
+						<div class="mb-3">
+							<h5
+								style="
+									color: rgb(254, 209, 54);
+									text-align: center;
+									margin-bottom: 18px;
+								"
+							>
+								Dados da excursão
+							</h5>
+						</div>
+						<% model.forEach(function(model) { %>
+						<div
+							style="
+								border-radius: 15px;
+								box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+								background: var(--bs-gray-700);
+								padding: 34px;
+								margin-top: 0px;
+								margin-bottom: 10px;
+								color: var(--bs-gray-800);
+							"
+							class="form-container"
+						>
+							<div style="padding: 10px">
+								<label
+									class="form-label"
+									style="
+										color: rgb(254, 209, 54);
+										text-align: center;
+										margin-bottom: 18px;
+										font-weight: bold;
+										font-family: Montserrat, sans-serif;
+										font-size: 21px;
+									"
+								>
+									<%= model.nome_destino %>
+								</label>
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										text-align: center;
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+										margin-bottom: 18px;
+									"
+								>
+									Valor por pessoa: R$ <%= model.valor_excursao %>
+								</label>						
+							</div>
+							<div style="margin-top: -15px; padding: 10px">
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										text-align: center;
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+									Ida
+								</label>
+								<input
+                                    name="data_saida_excursao"
+									id="data_saida_excursao"
+									class="form-control"
+									type="datetime-local"
+									style="width: auto; border-radius: 30px"
+                                    value=''
+								/>
+								<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										text-align: center;
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+										margin-top: 15px;
+									"
+								>
+									Retorno
+								</label>
+								<input
+                                    name="data_volta_excursao"
+									id="data_volta_excursao"
+									class="form-control"
+									type="datetime-local"
+									style="width: auto; border-radius: 30px"
+								/>
+							</div>
+						</div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary d-block w-100"
+								type="submit"
+								onclick="return validarCamposEmBranco();"
+								style="
+									background: rgb(254, 209, 54);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Reagendar!
+							</button>
+							<button
+								class="btn btn-danger d-block w-100"
+								type="button"
+								style="
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding: 14px 12px 14px;
+									padding-bottom: 14px;
+									margin-top: 15px;
+								"
+								data-bs-toggle="modal"
+								data-bs-target="#modal-cancelamento"
+							>
+								Cancelar agendamento
+							</button>
+							<button
+								class="btn btn-primary d-block w-100"
+								type="button"
+								onclick="window.location.href = '/agendados'"
+								style="
+									background: var(--bs-gray-700);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Retornar
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+
+		
+		<div class="modal fade" role="dialog" tabindex="-1" id="modal-cancelamento" >
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div
+						class="modal-header"
+						style="background: #2f363a; border-radius: -11px; padding: 25px"
+					>
+						<h4 class="modal-title" style="color: rgb(254, 209, 54)">
+							Confirmação
+						</h4>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body" style="background: #2f363a">
+						<h3 style="color: rgb(255, 255, 255)">
+							Tem certeza que deseja cancelar a excursão?
+						</h3>
+					</div>
+					<div class="modal-footer" style="background: #2f363a">
+						<button
+							class="btn btn-danger"
+							type="button"
+							style="color: rgb(0, 0, 0)"
+							onclick="window.location.href = '/cancelar-agendamento?excursao=<%= model.id_excursao %>'"
+						>
+							Cancelar
+						</button>
+						<button
+							class="btn btn-secondary"
+							type="button"
+							style="color: rgb(0, 0, 0)"
+							data-bs-dismiss="modal"
+						>
+							Sair
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% }) %>
+		<%- include('footer') %>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/agency.js"></script>	</body>
+		<script>
+
+			function validarCamposEmBranco(){
+					data_volta_excursao = document.getElementById('data_volta_excursao').value
+					data_saida_excursao = document.getElementById('data_saida_excursao').value
+
+					dataVoltaParse = new Date(data_volta_excursao)
+					dataSaidaParse = new Date(data_saida_excursao)
+
+					console.log("data de volta: " + dataVoltaParse)
+					console.log("data de saida: " + dataSaidaParse)
+					
+					if(data_saida_excursao === "" || data_volta_excursao === ""){
+						Swal.fire({
+							icon: 'error',
+							title: 'Não foi possível realizar o cadastro',
+							text: 'Necessário preencher todos os campos em branco!',
+							confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+					} else if(dataVoltaParse <= dataSaidaParse) {
+						Swal.fire({
+							icon: 'error',
+							title: 'Não foi possível realizar o cadastro',
+							text: 'A data de saída não pode ser maior do que a data de volta!',
+							confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+					}
+						return true
+					
+				}
+		</script>
+</html>

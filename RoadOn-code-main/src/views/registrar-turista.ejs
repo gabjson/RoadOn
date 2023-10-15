@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+			style="background: rgb(47, 54, 58)"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="index">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="fa fa-bars"></i>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+						<li class="nav-item">
+							<a class="nav-link" href="agendados">Agendados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="destinos">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="dashboard">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link active"
+								href="registrar-turista"
+								style="margin-right: 28px"
+							>
+								incluir turistas
+							</a>
+						</li>
+					</ul>
+					<button
+						class="btn btn-primary text-uppercase"
+						type="button"
+						style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+						onclick="window.location.href = '/logout'"
+					>
+						Sair
+					</button>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<section
+				class="register-photo"
+				style="
+					background: rgb(47, 54, 58);
+					margin-bottom: 5px;
+					margin-top: 30px;
+					padding-bottom: 50px;
+				"
+			>
+				<h1
+					class="text-capitalize"
+					style="
+						text-align: center;
+						padding: 40px;
+						color: rgb(254, 209, 54);
+						padding-top: 55px;
+						margin-bottom: -35px;
+						font-family: 'Kaushan Script', serif;
+					"
+				>
+					Cadastro de turista
+				</h1>
+				<div
+					class="form-container"
+					style="
+						border-radius: 30px;
+						box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+						background: #343a40;
+						padding: 40px;
+						margin-top: 60px;
+						margin-bottom: 10px;
+					"
+				>
+					<div
+						class="image-holder"
+						style="
+							border-radius: 30px;
+							background: url('assets/img/background_turistas.jpg') center /
+								cover;
+						"
+					></div>
+					<form
+						method="post"
+						style="
+							border-radius: 30px;
+							background: rgb(52, 58, 64);
+							width: 515px;
+							padding: 105px 60px;
+							padding-left: 65px;
+							padding-right: 10px;
+							padding-top: 40px;
+						"
+					>
+						<div class="mb-3">
+							<h5
+								style="
+									color: rgb(254, 209, 54);
+									text-align: center;
+									margin-bottom: 30px;
+								"
+							>
+								Dados do passageiro
+							</h5>
+						</div>
+						<div class="mb-3">
+							<label
+								class="form-label"
+								style="
+									color: var(--bs-white);
+									font-weight: bold;
+									font-family: Nunito, sans-serif;
+									font-size: 14px;
+								"
+							>
+								Nome
+							</label>
+							<input
+								name="nome_pessoa"
+								id="nome_pessoa"
+								class="form-control"
+								type="text"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o nome do passageiro"
+							/>
+						</div>
+						<div class="mb-3">
+                            <label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Email
+							</label>
+							<input
+								name="email_pessoa"
+								id="email_pessoa"
+								class="form-control"
+								type="email"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o E-mail do passageiro"
+							/>
+						</div>
+						<div class="mb-3">
+                            <label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Telefone
+							</label>
+							<input
+								name="telefone_pessoa"
+								id="telefone_pessoa"
+								onblur="if(!validPhone(this.value)){Swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: 'Celular Inválido!',
+                        confirmButtonColor: 'rgb(254, 209, 54)'								
+                      }); this.value='';}"
+								class="form-control"
+								type="number"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o telefone do passageiro"
+							/>
+						</div>
+						<div class="mb-3">
+                            <label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Data de Nascimento
+							</label>
+							<input
+								name="data_nascimento"
+								id="data_nascimento"
+								onblur="if(!validaDataNascimento(this.value)){Swal.fire({
+                        icon: 'warning',
+				        title: 'Atenção!',
+				        text: 'O passageiro menor de 16 anos precisa de autorização para viajar desacompanhado, ou deve estar com a presença de um responsável, conforme  Lei nº 13.812/2019.',
+				        confirmButtonColor: 'rgb(254, 209, 54)',							
+                      });}"
+								class="form-control"
+								type="date"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite a data de nascimento do passageiro"
+							/>
+							<div>
+                                <label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Excursão
+							</label>
+								<select
+									name="destinos"
+									id="destinos"
+									class="form-select"
+									style="border-radius: 15px; height: 40px"
+								>
+									<optgroup label="Destinos">
+										<option value="" selected="">Selecione um destino</option>
+										<% model.forEach(function(model) { %>
+										<option name="id_excursao" value="<%= model.id_excursao%>">
+											<%= model.nome_destino%> - <%=
+											moment(model.data_saida_excursao).format('lll') %> ~ <%=
+											moment(model.data_volta_excursao).format('lll') %>
+										</option>
+										<% }) %>
+									</optgroup>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3"></div>
+						<div class="mb-3"></div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary d-block w-100"
+								onclick="return validarCamposEmBranco();"
+								type="submit"
+								style="
+									background: rgb(254, 209, 54);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Incluir Passageiro!
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+		<%- include('footer') %>
+
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/agency.js"></script>
+
+		<script>
+			function validaDataNascimento(data) {
+				var dataMenorDeIdade = '01/01/2005'
+				var partesDataMenorIdade = dataMenorDeIdade.split('/')
+				var dataPreenchidaMenorIdade = new Date(
+					partesDataMenorIdade[2],
+					partesDataMenorIdade[1] - 1,
+					partesDataMenorIdade[0]
+				)
+				var partesData = data.split('-')
+				var dataPreenchida = new Date(
+					partesData[0],
+					partesData[1] - 1,
+					partesData[2]
+				)
+				if (
+					dataPreenchidaMenorIdade.getFullYear() > dataPreenchida.getFullYear()
+				) {
+					return true
+				}
+				return false
+			}
+
+			function validPhone(phone) {
+				var validador = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g
+				if (validador.test(phone)) {
+					return false
+				}
+				if (phone.length > 11 || phone.length < 10) {
+					return false
+				}
+				return true
+			}
+
+			function validarCamposEmBranco() {
+				nome = document.getElementById('nome_pessoa').value
+				email = document.getElementById('email_pessoa').value
+				telefone = document.getElementById('telefone_pessoa').value
+				dataNascimento = document.getElementById('data_nascimento').value
+				opcao = document.getElementById('destinos').value
+
+				if (
+					nome === '' ||
+					email === '' ||
+					telefone === '' ||
+					dataNascimento === '' ||
+					opcao === ''
+				) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Não foi possível realizar o cadastro',
+						text: 'Necessário preencher todos os campos em branco!',
+						confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+				} else {
+					return true
+				}
+			}
+		</script>
+	</body>
+</html>

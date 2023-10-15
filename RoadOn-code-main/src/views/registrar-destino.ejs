@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+			style="background: rgb(47, 54, 58)"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="index">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="fa fa-bars"></i>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+						<li class="nav-item">
+							<a class="nav-link" href="agendados">Agendados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="destinos">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="dashboard">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="registrar-turista"
+								style="margin-right: 28px"
+							>
+								incluir turistas
+							</a>
+						</li>
+					</ul>
+					<button
+						class="btn btn-primary text-uppercase"
+						type="button"
+						style="color: rgb(0, 0, 0); width: 97.4844px; height: 45px"
+						onclick="window.location.href = '/logout'"
+					>
+						Sair
+					</button>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<section
+				class="register-photo"
+				style="
+					background: rgb(47, 54, 58);
+					margin-bottom: 5px;
+					margin-top: 30px;
+					padding-bottom: 50px;
+				"
+			>
+				<h1
+					class="text-capitalize"
+					style="
+						text-align: center;
+						padding: 40px;
+						color: rgb(254, 209, 54);
+						padding-top: 55px;
+						margin-bottom: -35px;
+						font-family: 'Kaushan Script', serif;
+					"
+				>
+					Cadastre seu destino
+				</h1>
+				<div
+					class="form-container"
+					style="
+						border-radius: 30px;
+						box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+						background: #343a40;
+						padding: 40px;
+						margin-top: 60px;
+						margin-bottom: 10px;
+					"
+				>
+					<div
+						class="image-holder"
+						style="
+							border-radius: 30px;
+							background: url('assets/img/ryan-wilson-HkF6feHrGBE-unsplash.jpg')
+								center / cover;
+							width: 606px;
+						"
+					></div>
+					<form
+						method="post"
+						style="
+							border-radius: 30px;
+							background: rgb(52, 58, 64);
+							width: 515px;
+							padding: 105px 60px;
+							padding-left: 65px;
+							padding-right: 10px;
+							padding-top: 40px;
+						"
+					>
+						<div class="mb-3">
+							<h5
+								style="
+									color: rgb(254, 209, 54);
+									text-align: center;
+									margin-bottom: 18px;
+								"
+							>
+								Dados
+							</h5>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Destino
+							</label>
+							<input
+								class="form-control"
+								type="text"
+								name="nome_destino"
+								id="nome_destino"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o destino da excursão"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Mínimo de passageiros na excursão
+							</label>
+							<input
+								class="form-control"
+								type="number"
+								id="minimo_passageiro_excursao"
+								name="minimo_passageiro_excursao"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								onblur="if(!menorQueZero(this.value)){Swal.fire({
+									icon: 'error',
+									title: 'Não foi possível realizar o cadastro',
+									text: 'O número de passageiros não pode ser menor que zero!',
+									confirmButtonColor: 'rgb(254, 209, 54)',
+							}); this.value='';}"
+								placeholder="Digite o número mínimo de passageiros"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Máximo de passageiros na excursão
+							</label>						
+							<input
+								class="form-control"
+								type="number"
+								id="maximo_passageiro_excursao"
+								name="maximo_passageiro_excursao"
+								onblur="if(!validaValorMinimoDestino(this.value)){Swal.fire({
+									icon: 'warning',
+									title: 'Oops...',
+									text: 'O limite deve ser maior do que o valor mínimo!',
+									confirmButtonColor: 'rgb(254, 209, 54)',
+								}); this.value='';}"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite o limite de passageiros"
+							/>
+							<label
+							class="form-label"
+							style="
+								color: var(--bs-white);
+								font-weight: bold;
+								font-family: Nunito, sans-serif;
+								font-size: 14px;
+							"
+							>
+								Valor da excursão (por pessoa)
+							</label>
+							<input
+								class="form-control"
+								type="number"
+								name="valor_excursao"
+								id="valor_excursao"
+								onblur="if(this.value == 0){Swal.fire({
+									icon: 'warning',
+									title: 'Oops...',
+									text: 'O valor deve ser maior do que o R$00,00!',
+									confirmButtonColor: 'rgb(254, 209, 54)',
+								}); this.value='';}"
+								placeholder="Digite o valor por pessoa"
+								style="border-radius: 15px"
+							/>
+						</div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary d-block w-100"
+								type="submit"
+								onclick="return validarCamposEmBranco();"
+								style="
+									background: rgb(254, 209, 54);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Cadastrar!
+							</button>
+							<button
+								class="btn btn-primary d-block w-100"
+								type="button"
+								onclick="window.location.href = 'destinos'"
+								style="
+									background: var(--bs-gray-700);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Retornar
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+		<%- include('footer') %>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/agency.js"></script>
+
+		<script>
+			function validarCamposEmBranco() {
+				valor_excursao = document.getElementById('valor_excursao').value
+				nome_destino = document.getElementById('nome_destino').value
+				minimo_passageiro_excursao = document.getElementById(
+					'minimo_passageiro_excursao'
+				).value
+				maximo_passageiro_excursao = document.getElementById(
+					'maximo_passageiro_excursao'
+				).value
+
+				valorExcursaoParse = parseInt(valor_excursao)
+				minimoPassageirosParse = parseInt(minimo_passageiro_excursao)
+				maximoPassageirosParse = parseInt(maximo_passageiro_excursao)
+
+				if (
+					valor_excursao === '' ||
+					nome_destino === '' ||
+					minimo_passageiro_excursao === '' ||
+					maximo_passageiro_excursao === ''
+				) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Não foi possível realizar o cadastro',
+						text: 'Necessário preencher todos os campos em branco!',
+						confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+				} else if (valorExcursaoParse < 0) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Não foi possível realizar o cadastro',
+						text: 'O valor mínimo da excursão não pode ser menor que zero!',
+						confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+				} else if (minimoPassageirosParse > maximoPassageirosParse) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Não foi possível realizar o cadastro',
+						text: 'O número mínimo de passageiros não pode ser maior que o número máximo.',
+						confirmButtonColor: 'rgb(254, 209, 54)',
+					})
+					return false
+				}
+			}
+
+			function menorQueZero(n) {
+				if (n < 0) {
+					return false
+				}
+				return true
+			}
+
+			function validaValorMinimoDestino(maximo) {
+				minimo_passageiro_excursao = document.getElementById(
+					'minimo_passageiro_excursao'
+				).value
+				max = parseInt(maximo)
+				if (minimo_passageiro_excursao > max) {
+					return false
+				}
+				return true
+			}
+		</script>
+	</body>
+</html>

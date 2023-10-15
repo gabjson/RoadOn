@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title><%= title %></title>
+		<%- include('head') %>
+	</head>
+
+	<body
+		id="page-top"
+		data-bs-spy="scroll"
+		data-bs-target="#mainNav"
+		data-bs-offset="54"
+		style="background: rgb(47, 54, 58)"
+	>
+		<nav
+			class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark"
+			id="mainNav"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="/">Road.On</a>
+				<button
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarResponsive"
+					class="navbar-toggler navbar-toggler-right"
+					type="button"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="fa fa-bars"></i>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarResponsive"
+					style="padding-right: 12px"
+				>
+					<ul class="navbar-nav ms-auto text-uppercase">
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+						<li class="nav-item"></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<section
+				class="register-photo"
+				style="
+					background: rgb(47, 54, 58);
+					margin-bottom: 5px;
+					margin-top: 30px;
+					padding-bottom: 50px;
+				"
+			>
+				<h1
+					class="text-capitalize"
+					style="
+						text-align: center;
+						padding: 40px;
+						color: rgb(254, 209, 54);
+						padding-top: 55px;
+						margin-bottom: -35px;
+						font-family: 'Kaushan Script', serif;
+					"
+				>
+					Bem-vindo ao Road.On
+				</h1>
+				<div
+					class="form-container"
+					style="
+						border-radius: 30px;
+						box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4);
+						background: #343a40;
+						padding: 40px;
+						margin-top: 60px;
+						margin-bottom: 10px;
+					"
+				>
+					<div
+						class="image-holder"
+						style="
+							border-radius: 30px;
+							background: url('assets/img/login_bg.jpg') center / cover;
+						"
+					></div>
+					<form
+						method="post"
+						style="
+							border-radius: 30px;
+							background: rgb(52, 58, 64);
+							width: 515px;
+							padding: 105px 60px;
+							padding-left: 65px;
+							padding-right: 10px;
+							padding-top: 40px;
+						"
+					>
+						<div class="mb-3">
+							<h5
+								style="
+									color: rgb(254, 209, 54);
+									text-align: center;
+									margin-bottom: 30px;
+								"
+							>
+								Dados para login
+							</h5>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Email
+							</label>
+							<input
+								name="username"
+								class="form-control"
+								type="email"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite seu E-mail de acesso"
+							/>
+						</div>
+						<div class="mb-3">
+							<label
+									class="form-label"
+									style="
+										color: var(--bs-white);
+										font-weight: bold;
+										font-family: Nunito, sans-serif;
+										font-size: 14px;
+									"
+								>
+								Senha
+							</label>
+							<input
+								name="password"
+								class="form-control"
+								type="password"
+								style="border-radius: 15px; margin: 0px; margin-bottom: 15px"
+								placeholder="Digite a sua senha"
+							/>
+						</div>
+						<a href="registrar-empresa">
+							Ainda não possui cadastro? Clique aqui!
+						</a>						
+						<div class="mb-3"></div>
+						<div class="mb-3"></div>
+						<div class="mb-3"></div>
+						<div class="mb-3">
+							<button
+								class="btn btn-primary d-block w-100"
+								type="submit"
+								value="login"
+								style="
+									background: rgb(254, 209, 54);
+									color: rgb(0, 0, 0);
+									border-radius: 15px;
+									padding-bottom: 14px;
+								"
+							>
+								Logar!
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+		<%- include('footer') %>
+		<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/assets/js/bs-init.js"></script>
+		<script src="/assets/js/-Filterable-Cards-.js"></script>
+		<script src="/assets/js/agency.js"></script>
+		<script src="/assets/js/Dashboard.js"></script>
+		<script>
+			   '<% if(success) { %>'
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cadastro realizado com sucesso!',
+                    text: 'Faça login para desfrutar de nossos serviços',
+                    confirmButtonColor: 'rgb(254, 209, 54)',
+                })
+			   '<%}%>'
+
+			   '<% if(!logged) { %>'
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Você precisa estar logado para acessar essa tela! Faça login para desfrutar de nossos serviços',
+                    confirmButtonColor: 'rgb(254, 209, 54)',
+                })
+			   '<%}%>'
+
+               '<% if(fail) { %>'
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Email e/ou senha inválido(s)!',
+                    confirmButtonColor: 'rgb(254, 209, 54)',
+                })
+				'<%}%>'
+		</script>
+	</body>
+</html>
